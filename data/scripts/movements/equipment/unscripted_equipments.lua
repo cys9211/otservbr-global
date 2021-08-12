@@ -1,242 +1,7 @@
 if not equipmentsTable then
+
 	equipmentsTable = {
 		{
-			itemid = 40737,
-			type = "equip",
-			slot = "ammo"
-		}, -- spectral bolt (no decay)
-		{
-			itemid = 40737,
-			type = "deequip",
-			slot = "ammo"
-		}, -- spectral bolt (no decay)
-		{
-			itemid = 40684,
-			type = "equip",
-			slot = "right-hand",
-			vocation = {
-				{"None", true},
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- red quiver
-		{
-			itemid = 40684,
-			type = "deequip",
-			slot = "right-hand",
-			vocation = {
-				{"None", true},
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- red quiver
-		{
-			itemid = 40683,
-			type = "equip",
-			slot = "right-hand",
-			vocation = {
-				{"None", true},
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- blue quiver
-		{
-			itemid = 40683,
-			type = "deequip",
-			slot = "right-hand",
-			vocation = {
-				{"None", true},
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- blue quiver
-		{
-			itemid = 40397,
-			type = "equip",
-			slot = "right-hand",
-			vocation = {
-				{"None", true},
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- quiver
-		{
-			itemid = 40397,
-			type = "deequip",
-			slot = "right-hand",
-			vocation = {
-				{"None", true},
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- quiver
-		{
-			itemid = 40359,
-			type = "equip",
-			slot = "right-hand",
-			level = 150,			
-			vocation = {
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- jungle quiver
-		{
-			itemid = 40359,
-			type = "deequip",
-			slot = "right-hand",
-			level = 150,
-			vocation = {
-				{"Paladin", true, true},
-				{"Royal Paladin"}
-			}
-		}, -- jungle quiver
-		{
-			itemid = 40358,
-			type = "equip",
-			slot = "necklace",
-			level = 180
-		}, -- exotic amulet
-		{
-			itemid = 40358,
-			type = "deequip",
-			slot = "necklace"
-		}, -- exotic amulet
-		{
-			itemid = 40357,
-			type = "equip",
-			slot = "hand",
-			level = 150,
-			vocation = {
-				{"Sorcerer", true},
-				{"Master Sorcerer"}
-			}
-		}, -- jungle wand
-		{
-			itemid = 40357,
-			type = "deequip",
-			slot = "hand",
-		}, -- jungle wand
-		{
-			itemid = 40356,
-			type = "equip",
-			slot = "hand",
-			level = 150,
-			vocation = {
-				{"Druid", true},
-				{"Elder Druid"}
-			}
-		}, -- jungle rod
-		{
-			itemid = 40356,
-			type = "deequip",
-			slot = "hand",
-		}, -- jungle rod
-		{
-			itemid = 40355,
-			type = "equip",
-			slot = "feet",
-			level = 150,
-			vocation = {
-				{"Druid", true},
-				{"Elder Druid"}
-			}
-		}, -- make-do boots
-		{
-			itemid = 40355,
-			type = "deequip",
-			slot = "feet",
-		}, -- make-do boots
-		{
-			itemid = 40354,
-			type = "equip",
-			slot = "feet",
-			level = 150,
-			vocation = {
-				{"Sorcerer", true},
-				{"Master Sorcerer"}
-			}
-		}, -- makeshift boots
-		{
-			itemid = 40354,
-			type = "deequip",
-			slot = "feet",
-		}, -- makeshift boots
-		{
-			itemid = 40353,
-			type = "equip",
-			slot = "hand",
-			level = 150,
-			vocation = {
-				{"Paladin", true},
-				{"Royal Paladin"}
-			}
-		}, -- jungle bow
-		{
-			itemid = 40353,
-			type = "deequip",
-			slot = "hand",
-		}, -- jungle bow
-		{
-			itemid = 40352,
-			type = "equip",
-			slot = "legs",
-			level = 150,
-			vocation = {
-				{"Paladin", true},
-				{"Royal Paladin"}
-			}
-		}, -- bast legs
-		{
-			itemid = 40352,
-			type = "deequip",
-			slot = "legs",
-		}, -- bast legs
-		{
-			itemid = 40351,
-			type = "equip",
-			slot = "legs",
-			level = 130,
-			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
-			}
-		}, -- exotic legs
-		{
-			itemid = 40351,
-			type = "deequip",
-			slot = "legs",
-		}, -- exotic legs
-		{
-			itemid = 40350,
-			type = "equip",
-			slot = "hand",
-			level = 150,
-			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
-			}
-		}, -- throwing axe
-		{
-			itemid = 40350,
-			type = "deequip",
-			slot = "hand",
-		}, -- throwing axe
-		{
-			itemid = 40349,
-			type = "equip",
-			slot = "hand",
-			level = 150,
-			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
-			}
-		}, -- jungle flail
-		{
-			itemid = 40349,
-			type = "deequip",
-			slot = "hand",
-		}, -- jungle flail
-		{
 			itemid = 39089,
 			type = "equip",
 			slot = "hand",
@@ -278,6 +43,18 @@ if not equipmentsTable then
 			slot = "necklace",
 			level = 150
 		}, -- lion amulet
+{
+			itemid = 30184,
+			type = "equip",
+			slot = "ammo",
+			level = 150
+		}, -- Journal Shield
+		{
+			itemid = 30184,
+			type = "deequip",
+			slot = "ammo",
+			level = 150
+		}, -- lJournal Shield
 		{
 			itemid = 38992,
 			type = "deequip",
@@ -663,28 +440,12 @@ if not equipmentsTable then
 			itemid = 38915,
 			type = "deequip",
 			slot = "ring",
-			level = 270
 		}, -- lion ring
 		{
 			itemid = 38915,
 			type = "equip",
 			slot = "ring",
-			level = 270,
-			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
-			}
 		}, -- lion ring
-		{
-			itemid = 38851,
-			type = "equip",
-			slot = "ammo"
-		}, -- Lit Torch (Sparkling)
-		{
-			itemid = 38851,
-			type = "deequip",
-			slot = "ammo"
-		}, -- Lit Torch (Sparkling)
 		{
 			itemid = 37540,
 			type = "equip",
@@ -1366,13 +1127,13 @@ if not equipmentsTable then
 				{"Paladin", true},
 				{"Royal Paladin"}
 			}
-		}, -- enchanted pendulet
+		}, -- pendulet
 		{
 			itemid = 34983,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- enchanted pendulet
+		}, -- pendulet
 		{
 			itemid = 34982,
 			type = "equip",
@@ -1398,13 +1159,13 @@ if not equipmentsTable then
 				{"Paladin", true},
 				{"Royal Paladin"}
 			}
-		}, -- enchanted sleep shawl
+		}, -- sleep shawl
 		{
 			itemid = 34981,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- enchanted sleep shawl
+		}, -- sleep shawl
 		{
 			itemid = 34980,
 			type = "equip",
@@ -1691,16 +1452,6 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "backpack"
 		}, -- book backpack
-		{
-			itemid = 33276,
-			type = "equip",
-			slot = "ammo"
-		}, -- Bone Fiddle
-		{
-			itemid = 33276,
-			type = "deequip",
-			slot = "ammo"
-		}, -- Bone Fiddle
 		{
 			itemid = 33267,
 			type = "equip",
@@ -2340,6 +2091,16 @@ if not equipmentsTable then
 			slot = "hand"
 		}, -- valuable carving hammer
 		{
+			itemid = 29298,
+			type = "equip",
+			slot = "hand"
+		}, -- valuable carving bow
+		{
+			itemid = 29298,
+			type = "deequip",
+			slot = "hand"
+		}, -- valuable carving bow
+		{
 			itemid = 29295,
 			type = "equip",
 			slot = "hand"
@@ -2479,6 +2240,26 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "hand"
 		}, -- ornate carving blade
+{
+			itemid = 29247,
+			type = "equip",
+			slot = "hand"
+		}, -- ornate carving rod
+		{
+			itemid = 29247,
+			type = "deequip",
+			slot = "hand"
+		}, -- ornate carving rod
+{
+			itemid = 29245,
+			type = "equip",
+			slot = "hand"
+		}, -- ornate carving rod
+		{
+			itemid = 29245,
+			type = "deequip",
+			slot = "hand"
+		}, -- ornate carving rod
 		{
 			itemid = 29281,
 			type = "equip",
@@ -2869,36 +2650,6 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "shield"
 		}, -- mathmaster shield (souvenir)
-		{
-			itemid = 29213,
-			type = "equip",
-			slot = "ammo"
-		}, -- Sun Catcher
-		{
-			itemid = 29213,
-			type = "deequip",
-			slot = "ammo"
-		}, -- Sun Catcher
-		{
-			itemid = 29212,
-			type = "equip",
-			slot = "ammo"
-		}, -- starlight vial
-		{
-			itemid = 29212,
-			type = "deequip",
-			slot = "ammo"
-		}, -- starlight vial
-		{
-			itemid = 29211,
-			type = "equip",
-			slot = "ammo"
-		}, -- moon mirror
-		{
-			itemid = 29211,
-			type = "deequip",
-			slot = "ammo"
-		}, -- moon mirror
 		{
 			itemid = 29210,
 			type = "equip",
@@ -3557,6 +3308,16 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "ammo"
 		}, -- spectral bolt
+		{
+			itemid = 40737,
+			type = "equip",
+			slot = "ammo"
+		}, -- spectral bolt (no decay)
+		{
+			itemid = 40737,
+			type = "deequip",
+			slot = "ammo"
+		}, -- spectral bolt (no decay)
 		{
 			itemid = 29036,
 			type = "equip",
@@ -5323,50 +5084,24 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "shield"
 		}, -- broken wooden shield
+		--[[
 		{
-			itemid = 23771,
-			type = "equip",
-			slot = "shield",
-			vocation = {
-				{"Sorcerer", true},
-				{"Druid", true, true},
-				{"Master Sorcerer"},
-				{"Elder Druid"}
-			}
-		}, -- spellbook of the novice
+			spellbook of the novice
+			itemid = 23771
+			dawnport scripted equipment
+		},
+		
 		{
-			itemid = 23771,
-			type = "deequip",
-			slot = "shield"
-		}, -- spellbook of the novice
+			the chiller
+			itemid = 23721
+			dawnport scripted equipment
+		},
 		{
-			itemid = 23721,
-			type = "equip",
-			slot = "hand",
-			vocation = {
-				{"Druid", true},
-				{"Elder Druid"}
-			}
-		}, -- the chiller
-		{
-			itemid = 23721,
-			type = "deequip",
-			slot = "hand"
-		}, -- the chiller
-		{
-			itemid = 23719,
-			type = "equip",
-			slot = "hand",
-			vocation = {
-				{"Sorcerer", true},
-				{"Master Sorcerer"}
-			}
-		}, -- the scorcher
-		{
-			itemid = 23719,
-			type = "deequip",
-			slot = "hand"
-		}, -- the scorcher
+			the scorcher
+			itemid = 23719
+			dawnport scripted equipment
+		},
+		]]
 		{
 			itemid = 23666,
 			type = "equip",
@@ -6037,12 +5772,6 @@ if not equipmentsTable then
 			itemid = 21700,
 			type = "equip",
 			slot = "legs",
-			vocation = {
-				{"Sorcerer", true},
-				{"Druid", true, true},
-				{"Master Sorcerer"},
-				{"Elder Druid"}
-			}
 		}, -- icy culottes
 		{
 			itemid = 21700,
@@ -11263,12 +10992,12 @@ if not equipmentsTable then
 		{
 			itemid = 6132,
 			type = "equip",
-			slot = "feet",
+			slot = "feet"
 		}, -- pair of soft boots
 		{
 			itemid = 6132,
 			type = "deequip",
-			slot = "feet",
+			slot = "feet"
 		}, -- pair of soft boots
 		{
 			itemid = 6131,
@@ -11912,11 +11641,13 @@ if not equipmentsTable then
 			itemid = 2640,
 			type = "equip",
 			slot = "feet",
+			level = 180
 		}, -- pair of soft boots
 		{
 			itemid = 2640,
 			type = "deequip",
 			slot = "feet",
+			level = 180
 		}, -- pair of soft boots
 		{
 			itemid = 2550,
@@ -13901,13 +13632,7 @@ if not equipmentsTable then
 		{
 			itemid = 2204,
 			type = "equip",
-			slot = "ring",
-			vocation = {
-				{"Knight", true},
-				{"Paladin", true, true},
-				{"Elite Knight"},
-				{"Royal Paladin"}
-			}
+			slot = "ring"
 		}, -- energy ring
 		{
 			itemid = 2204,
@@ -14253,13 +13978,7 @@ if not equipmentsTable then
 		{
 			itemid = 2167,
 			type = "equip",
-			slot = "ring",
-			vocation = {
-				{"Knight", true},
-				{"Paladin", true, true},
-				{"Elite Knight"},
-				{"Royal Paladin"}
-			}
+			slot = "ring"
 		}, -- energy ring
 		{
 			itemid = 2167,
@@ -14838,7 +14557,86 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "hand"
 		}, -- small stone
-		
+		{
+			itemid = 40359,
+			type = "equip",
+			slot = "right-hand",
+			level = 150,			
+			vocation = {
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle quiver
+		{
+			itemid = 40359,
+			type = "deequip",
+			slot = "right-hand",
+			level = 8,
+			vocation = {
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle quiver
+		{
+			itemid = 40397,
+			type = "equip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- quiver
+		{
+			itemid = 40397,
+			type = "deequip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- quiver
+		{
+			itemid = 40683,
+			type = "equip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- blue quiver
+		{
+			itemid = 40683,
+			type = "deequip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- blue quiver
+		{
+			itemid = 40684,
+			type = "equip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- red quiver
+		{
+			itemid = 40684,
+			type = "deequip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- red quiver
 	}
 end
 
