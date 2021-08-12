@@ -3230,11 +3230,13 @@
 		<attribute key="duration" value="86400" />
 	</item>
 	<item id="2352" article="a" name="crystal arrow">
-		<attribute key="loottype" value="other" />
-		<attribute key="description" value="This arrow seems not suitable for the use with ordinary bows. It seems to be rotting rapidly." />
 		<attribute key="weight" value="100" />
-		<attribute key="decayTo" value="0" />
-		<attribute key="duration" value="86400" />
+		<attribute key="attack" value="437" />
+		<attribute key="weaponType" value="ammunition" />
+		<attribute key="loottype" value="ammo" />
+		<attribute key="ammoType" value="arrow" />
+		<attribute key="shootType" value="diamondarrow" />
+		<attribute key="maxHitChance" value="100" />
 	</item>
 	<item id="2353" article="a" name="burning heart">
 		<attribute key="loottype" value="other" />
@@ -3263,11 +3265,17 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
 	</item>
-	<item id="2358" name="boots of waterwalking">
-		<attribute key="description" value="(This item has 5 charges left)." />
+		<item id="2358" name="boots of waterwalking">
+		<attribute key="speed" value="40" />
+		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="manaGain" value="40" />
+		<attribute key="manaTicks" value="1" />
+		<attribute key="healthGain" value="40" />
+		<attribute key="healthTicks" value="1" />
 		<attribute key="weight" value="770" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="loottype" value="boots" />
+		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item id="2359" article="a" name="djinn's lamp">
 		<attribute key="description" value="(This item has 2 charges left)." />
@@ -4292,11 +4300,20 @@
 		<attribute key="loottype" value="armor" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="2501" article="a" name="ceremonial mask">
+	<item id="2501" article="a" name="pro helmet">
 		<attribute key="weight" value="4000" />
-		<attribute key="armor" value="9" />
+		<attribute key="armor" value="30" />
 		<attribute key="slotType" value="head" />
-		<attribute key="loottype" value="helmet" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="absorbPercentPhysical" value="6" />
+		<attribute key="loottype" value="helmet" />	
 	</item>
 	<item id="2502" article="a" name="dwarven helmet">
 		<attribute key="weight" value="4200" />
@@ -4341,11 +4358,20 @@
 		<attribute key="slotType" value="legs" />
 		<attribute key="loottype" value="legs" />
 	</item>
-	<item id="2508" article="a" name="native armor">
+	<item id="2508" article="a" name="pro armor">
 		<attribute key="weight" value="8000" />
 		<attribute key="slotType" value="body" />
 		<attribute key="loottype" value="armor" />
-		<attribute key="armor" value="7" />
+		<attribute key="armor" value="17" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="absorbPercentPhysical" value="6" />
 	</item>
 	<item id="2509" article="a" name="steel shield">
 		<attribute key="weight" value="6900" />
@@ -4544,11 +4570,20 @@
 		<attribute key="loottype" value="shield" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
-	<item id="2538" article="an" name="eagle shield">
+	<item id="2538" article="an" name="pro shield">
 		<attribute key="weight" value="6200" />
 		<attribute key="defense" value="32" />
 		<attribute key="weaponType" value="shield" />
 		<attribute key="loottype" value="shield" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="absorbPercentPhysical" value="6" />
 	</item>
 	<item id="2539" article="a" name="phoenix shield">
 		<attribute key="description" value="This shield feels warm to the touch." />
@@ -5562,23 +5597,18 @@
 	</item>
 	<item id="2844" article="a" name="dead dragon">
 		<attribute key="containerSize" value="10" />
-		<attribute key="decayTo" value="2845" />
-		<attribute key="duration" value="300" />
+		<attribute key="decayTo" value="3104" />
+		<attribute key="duration" value="900" />
 	</item>
 	<item id="2845" article="a" name="dead dragon">
 		<attribute key="containerSize" value="10" />
 		<attribute key="corpseType" value="blood" />
-		<attribute key="decayTo" value="2847" />
-		<attribute key="duration" value="300" />
 	</item>
 	<item id="2846" article="a" name="slain ghoul">
 		<attribute key="containerSize" value="10" />
 		<attribute key="corpseType" value="undead" />
 	</item>
-	<item id="2847" article="a" name="dead dragon">
-		<attribute key="decayTo" value="0" />
-		<attribute key="duration" value="60" />
-	</item>
+	<item id="2847" article="a" name="dead dragon" />
 	<item id="2848" article="a" name="dead spider">
 		<attribute key="weight" value="9000" />
 		<attribute key="containerSize" value="6" />
@@ -9199,16 +9229,14 @@
 	<item id="5463" article="a" name="sugar cane">
 		<attribute key="description" value="It has just been harvested." />
 		<attribute key="decayTo" value="5471" />
-		<attribute key="duration" value="10"/>
+		<attribute key="duration" value="240" />
 	</item>
 	<item id="5464" article="a" name="sugar cane">
 		<attribute key="description" value="It can be harvested." />
-		<attribute key="decayTo" value="5463" />
-		<attribute key="duration" value="8"/>
 	</item>
-		<item id="5465" article="a" name="burning sugar cane">
+	<item id="5465" article="a" name="burning sugar cane">
 		<attribute key="decayTo" value="5464" />
-		<attribute key="duration" value="5"/>
+		<attribute key="duration" value="10" />
 	</item>
 	<item id="5466" article="a" name="sugar cane" />
 	<item id="5467" article="a" name="bunch of sugar cane">
@@ -9221,7 +9249,7 @@
 	<item fromid="5469" toid="5470" article="a" name="distilling machine" />
 	<item id="5471" article="a" name="sugar cane">
 		<attribute key="decayTo" value="5466" />
-		<attribute key="duration" value="10" />
+		<attribute key="duration" value="240" />
 	</item>
 	<item fromid="5472" toid="5473" article="a" name="ball on chains" />
 	<item fromid="5474" toid="5475" article="an" name="iron maiden" />
@@ -14305,10 +14333,25 @@
 	<item id="7696" article="a" name="parchment">
 		<attribute key="weight" value="120" />
 	</item>
-	<item id="7697" article="a" name="signet ring">
+	<item id="7697" article="a" name="pro ring">
 		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
+		<attribute key="speed" value="40000" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="manaGain" value="400" />
+		<attribute key="manaTicks" value="1" />
+		<attribute key="healthGain" value="400" />
+		<attribute key="healthTicks" value="1" />
+		<attribute key="weight" value="770" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item id="7698" article="a" name="case of rust bugs">
 		<attribute key="weight" value="170" />
@@ -14344,8 +14387,21 @@
 	</item>
 	<item id="7708" article="a" name="signet ring">
 		<attribute key="weight" value="80" />
+		<attribute key="absorbPercentAll" value="95" />
 		<attribute key="slotType" value="ring" />
-		<attribute key="loottype" value="ring" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="speed" value="1000000" />
+		<attribute key="healthGain" value="30000" />
+		<attribute key="healthTicks" value="1" />
+		<attribute key="manaGain" value="12000" />
+		<attribute key="manaTicks" value="1" />
+		<attribute key="magiclevelpoints" value="50000" />
+		<attribute key="skillAxe" value="50000" />
+		<attribute key="skillSword" value="50000" />
+		<attribute key="skillShield" value="50000" />
+		<attribute key="skillDist" value="50000" />
+		<attribute key="skillClub" value="50000" />
+		<attribute key="skillFist" value="50000" />
 	</item>
 	<item fromid="7709" toid="7710" name="grass" />
 	<item id="7711" article="a" name="waterball" />
@@ -21643,11 +21699,23 @@
 	</item>
 	<item fromid="11379" toid="11384" name="dark spikes" />
 	<item fromid="11385" toid="11392" article="a" name="part of a giant stone dragon" />
-	<item id="11393" article="a" name="lucky clover amulet">
-		<attribute key="description" value="It is rumoured to bring you good luck! Luck sponsored by TibiaLottery." />
-		<attribute key="weight" value="150" />
+		<item id="11393" article="a" name="pro amulet">
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="manaGain" value="400" />
+		<attribute key="manaTicks" value="1" />
+		<attribute key="healthGain" value="400" />
+		<attribute key="healthTicks" value="1" />
+		<attribute key="weight" value="770" />
+		<attribute key="showattributes" value="1" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="loottype" value="amulet" />
+	    <attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item id="11394" article="a" name="dragon goblet">
 		<attribute key="weight" value="1800" />
@@ -25994,12 +26062,12 @@
 		<attribute key="description" value="It was awarded during the festivities of Tibia's 15th anniversary." />
 		<attribute key="weight" value="1250" />
 	</item>
-	<item id="16007" article="an" name="anniversary backpack">
+    <item id="16007" article="an" name="pro backpack">
 		<attribute key="description" value="It was awarded during the festivities of Tibia's 15th anniversary." />
 		<attribute key="weight" value="1500" />
-		<attribute key="containerSize" value="15" />
+		<attribute key="containerSize" value="150" />
 		<attribute key="slotType" value="backpack" />
-		<attribute key="imbuingSlots" value="1" />
+		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item fromid="16008" toid="16013" article="a" name="tapestry of honour">
 		<attribute key="description" value="This tapestry has been awarded to the guild for being more than age years old on January 7th 2012 at Tibia's 15th birthday." />
@@ -26078,9 +26146,9 @@
 		<attribute key="description" value="Use it in your house to construct a cake cabinet." />
 		<attribute key="weight" value="7500" />
 	</item>
-	<item id="16101" article="a" name="premium scroll">
-		<attribute key="description" value="Using this scroll will add 30 days of premium time to your account once." />
-		<attribute key="weight" value="0" />
+    <item id="16101" article="a" name="tc scroll">
+		<attribute key="description" value="Using this scroll will add 25 Tibia Coins to your account once." />
+		<attribute key="weight" value="100" />
 	</item>
 	<item id="16102" article="a" name="surprise nest">
 		<attribute key="description" value="Use it to get a little surprise." />
@@ -26098,8 +26166,8 @@
 		<attribute key="description" value="The mightiest. The only. God of all dwarfs. Awarded by Tibia Bariloche." />
 		<attribute key="weight" value="4000" />
 	</item>
-	<item fromid="16109" toid="16110" article="a" name="majestic shield">
-		<attribute key="description" value="This wonderful shield is designed for GuildStats.eu, to honour all guilds in Tibia." />
+	<item fromid="16109" toid="16110" article="a" name="staminer">
+		<attribute key="description" value="Stamina Refiler." />
 		<attribute key="weight" value="15000" />
 	</item>
 	<item id="16111" article="a" name="thorn spitter">
@@ -31916,13 +31984,22 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="21700" name="icy culottes">
+		<item id="21700" name="pro legs">
 		<attribute key="weight" value="1500" />
-		<attribute key="armor" value="8" />
+		<attribute key="armor" value="14" />
 		<attribute key="slotType" value="legs" />
 		<attribute key="loottype" value="legs" />
 		<attribute key="absorbPercentIce" value="8" />
 		<attribute key="showattributes" value="1" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="absorbPercentPhysical" value="6" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item id="21703" article="an" name="eye of the storm">
 		<attribute key="loottype" value="ammo" />
@@ -40603,11 +40680,17 @@
 		<attribute key="weaponType" value="wand" />
 		<attribute key="loottype" value="wand" />
 	</item>
-	<item id="29245" article="an" name="ornate mayhem wand">
+	<item id="29245" article="an" name="pro wand">
 		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="5" />
+		<attribute key="defense" value="50" />
+		<attribute key="magiclevelpoints" value="50" />
+		<attribute key="absorbPercentAll" value="50" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="150" />
+		<attribute key="imbuingSlots" value="3" />
 		<attribute key="weaponType" value="wand" />
+		<attribute key="range" value="10" />
+		<attribute key="shootType" value="death" />
 		<attribute key="loottype" value="wand" />
 	</item>
 	<item id="29246" article="a" name="plain mayhem rod">
@@ -40617,11 +40700,17 @@
 		<attribute key="weaponType" value="wand" />
 		<attribute key="loottype" value="wand" />
 	</item>
-	<item id="29247" article="a" name="valuable mayhem rod">
+		<item id="29247" article="a" name="pro rod">
 		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="5" />
+		<attribute key="defense" value="50" />
+		<attribute key="magiclevelpoints" value="50" />
+		<attribute key="absorbPercentAll" value="50" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="150" />
+		<attribute key="imbuingSlots" value="3" />
 		<attribute key="weaponType" value="wand" />
+		<attribute key="range" value="10" />
+		<attribute key="shootType" value="holy" />
 		<attribute key="loottype" value="wand" />
 	</item>
 	<item id="29248" article="an" name="ornate mayhem rod">
@@ -40861,12 +40950,19 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 	</item>
-	<item id="29282" article="an" name="ornate carving blade">
-		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="5" />
+		<item id="29282" article="an" name="pro blade">
+     	<attribute key="weight" value="5000" />
+		<attribute key="defense" value="35" />
+		<attribute key="attack" value="50" />
+		<attribute key="elementIce" value="97" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="25" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
+		<attribute key="skillSword" value="15" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="magiclevelpoints" value="10" />
+		<attribute key="absorbPercentAll" value="50" />
 	</item>
 	<item id="29283" article="a" name="plain carving slayer">
 		<attribute key="weight" value="5000" />
@@ -40889,12 +40985,19 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 	</item>
-	<item id="29286" article="a" name="plain carving axe">
-		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="5" />
+<item id="29286" article="a" name="pro axe">
+     	<attribute key="weight" value="5000" />
+		<attribute key="defense" value="35" />
+		<attribute key="attack" value="50" />
+		<attribute key="elementIce" value="97" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="25" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
+		<attribute key="skillAxe" value="15" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="magiclevelpoints" value="10" />
+		<attribute key="absorbPercentAll" value="50" />
 	</item>
 	<item id="29287" article="a" name="valuable carving axe">
 		<attribute key="weight" value="5000" />
@@ -40959,12 +41062,19 @@
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
 	</item>
-	<item id="29296" article="a" name="valuable carving hammer">
-		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="5" />
+		<item id="29296" article="a" name="pro hammer">
+     	<attribute key="weight" value="5000" />
+		<attribute key="defense" value="35" />
+		<attribute key="attack" value="50" />
+		<attribute key="elementIce" value="97" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="25" />
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
+		<attribute key="skillClub" value="15" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="magiclevelpoints" value="10" />
+		<attribute key="absorbPercentAll" value="50" />
 	</item>
 	<item id="29297" article="an" name="ornate carving hammer">
 		<attribute key="weight" value="5000" />
@@ -40973,13 +41083,20 @@
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
 	</item>
-	<item id="29298" article="a" name="plain carving bow">
-		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="5" />
-		<attribute key="attack" value="5" />
-		<attribute key="slotType" value="two-handed" />
+	<item id="29298" article="a" name="pro bow">
+		<attribute key="weight" value="4700" />
 		<attribute key="weaponType" value="distance" />
 		<attribute key="loottype" value="distance" />
+		<attribute key="range" value="8" />
+		<attribute key="attack" value="120" />
+		<attribute key="HitChance" value="100" />
+		<attribute key="skillDist" value="25" />
+		<attribute key="absorbPercentAll" value="50" />
+		<attribute key="magiclevelpoints" value="50" />
+		<attribute key="ammoType" value="arrow" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="25" />
 	</item>
 	<item id="29299" article="a" name="valuable carving bow">
 		<attribute key="weight" value="5000" />
@@ -41072,6 +41189,7 @@
 	</item>
 	<item id="29313" article="a" name="bath tub">
 		<attribute key="wrapableTo" value="26054" />
+        <attribute key="moveable" value="0" />
 		<attribute key="description" value="A very inviting bath tub filled with water." />
 	</item>
 	<item id="29314" article="a" name="terrarium spider">
@@ -41272,36 +41390,6 @@
 		<attribute key="type" value="carpet" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-   	<item id="29361" article="a" name="dead misguided">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="29362"/>
-		<attribute key="duration" value="10"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="29362" article="a" name="dead misguided">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="decayto" value="29363"/>
-		<attribute key="duration" value="5"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="29363" article="a" name="dead misguided">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="decayto" value="29364"/>
-		<attribute key="duration" value="4"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="29364" article="a" name="dead misguided">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="decayto" value="29365"/>
-		<attribute key="duration" value="3"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="29365" article="a" name="blood">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="duration" value="1"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
 	<item id="29368" article="a" name="dead boss">
 		<attribute key="decayTo" value="29369" />
 		<attribute key="duration" value="600" />
@@ -41463,9 +41551,25 @@
 		<attribute key="description" value="This certainly is no ordinary tree, yet it looks exactly like one and smells invigoratingly fresh." />
 		<attribute key="weight" value="250" />
 	</item>
-	<item id="30184" article="a" name="Journal Shield">
+		<item id="30184" article="a" name="pro hand shield">
 		<attribute key="description" value="This certainly is no ordinary tree, yet it looks exactly like one and smells invigoratingly fresh." />
 		<attribute key="weight" value="250" />
+		<attribute key="absorbPercentAll" value="15" />
+		<attribute key="slotType" value="ammo" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="speed" value="500" />
+		<attribute key="healthGain" value="30" />
+		<attribute key="healthTicks" value="1" />
+		<attribute key="manaGain" value="120" />
+		<attribute key="manaTicks" value="1" />
+		<attribute key="magiclevelpoints" value="25" />
+		<attribute key="skillAxe" value="25" />
+		<attribute key="skillSword" value="25" />
+		<attribute key="skillShield" value="25" />
+		<attribute key="skillDist" value="25" />
+		<attribute key="skillClub" value="25" />
+		<attribute key="skillFist" value="25" />
+		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item fromid="30185" toid="30278" article="an" name="unknown wall"/>
 	<item fromid="30443" toid="30446" article="an" name="unknown wall"/>
@@ -44831,9 +44935,6 @@
 	<item id="34588" article="an" name="acid resistant fishing rod">
 		<attribute key="weight" value="850" />
 	</item>
-	<item id="34592" article="a" name="book about spells">
-		<attribute key="description" value="This book contains descriptions of spells and what they do. Some of it does not sound very likely at all." />
-	</item>
 	<item id="34606" article="a" name="tree"/>
 	<item id="34607" article="a" name="sun fruit bush"/>
 	<item id="34608" article="a" name="sun fruit bush"/>
@@ -45282,56 +45383,6 @@
 	</item>
 	<item fromid="34756" toid="34757" article="a" name="golden sun"/>
 	<item fromid="34758" toid="34759" name="snowflakes"/>
-	<item id="34760" article="a" name="dead crazed winter vanguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="60"/>
-	</item>
-	<item id="34761" article="a" name="dead crazed winter vanguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="34712"/>
-		<attribute key="duration" value="300"/>
-	</item>
-	<item id="34762" article="a" name="dead crazed winter vanguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="34713"/>
-		<attribute key="duration" value="300"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="34763" article="a" name="dead crazed winter vanguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="34714"/>
-		<attribute key="duration" value="10"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="34764" article="a" name="dead crazed winter rearguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="60"/>
-	</item>
-	<item id="34765" article="a" name="dead crazed winter rearguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="34716"/>
-		<attribute key="duration" value="300"/>
-	</item>
-	<item id="34766" article="a" name="dead crazed winter rearguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="34717"/>
-		<attribute key="duration" value="300"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
-	<item id="34767" article="a" name="dead crazed winter rearguard">
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="34718"/>
-		<attribute key="duration" value="10"/>
-		<attribute key="fluidSource" value="blood"/>
-	</item>
 	<item id="34769" article="an" name="ancient oil lamp"/>
 	<item id="34770" article="a" name="dream talisman">
 		<attribute key="weight" value="1200" />
@@ -45792,11 +45843,26 @@
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="155" />
 	</item>
-	<item id="35055" article="a" name="yetislippers">
-		<attribute key="armor" value="0" />
+	<item id="35055" article="a" name="pro boots">
+		<attribute key="armor" value="15" />
 		<attribute key="weight" value="740" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="loottype" value="boots" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="absorbPercentPhysical" value="6" />
+		<attribute key="skillcriticalchance" value="100" />
+		<attribute key="skillcriticaldamage" value="25" />
+		<attribute key="manaGain" value="40" />
+		<attribute key="manaTicks" value="1" />
+		<attribute key="healthGain" value="40" />
+		<attribute key="healthTicks" value="1" />
 	</item>
 	<item id="35056" article="a" name="festive backpack">
 		<attribute key="containerSize" value="22" />
@@ -50767,70 +50833,70 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>		
-	<item id="38805" article="a" name="dead drume">
+	<item id="38805" article="a" name="dead lion knight">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38806" article="a" name="dead drume">
+	<item id="38806" article="a" name="dead lion knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38805" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38807" article="a" name="dead drume">
+	<item id="38807" article="a" name="dead lion knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38806" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38808" article="a" name="dead drume">
+	<item id="38808" article="a" name="dead lion knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38807" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>	
-	<item id="38809" article="a" name="dead usurper knight">
+	<item id="38809" article="a" name="dead lion knight">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38810" article="a" name="dead usurper knight">
+	<item id="38810" article="a" name="dead lion knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38809" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38811" article="a" name="dead usurper knight">
+	<item id="38811" article="a" name="dead lion knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38810" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38812" article="a" name="dead usurper knight">
+	<item id="38812" article="a" name="dead lion knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38811" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>	
-	<item id="38813" article="a" name="dead usurper archer">
+	<item id="38813" article="a" name="dead lion archer">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38814" article="a" name="dead usurper archer">
+	<item id="38814" article="a" name="dead lion archer">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38813" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38815" article="a" name="dead usurper archer">
+	<item id="38815" article="a" name="dead lion archer">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38814" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38816" article="a" name="dead usurper archer">
+	<item id="38816" article="a" name="dead lion archer">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38815" />
 		<attribute key="duration" value="10" />
@@ -50930,7 +50996,7 @@
 		<attribute key="description" value="It was awarded by a CM as a token of gratitude for valuable feedback." />
 	</item>
 	<item id="38915" article="a" name="lion ring">
-		<attribute key="weight" value="40" />
+		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
 	</item>
@@ -51544,24 +51610,24 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39016" article="a" name="dead usurper warlock">
+	<item id="39016" article="a" name="dead corpse">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39017" article="a" name="dead usurper warlock">
+	<item id="39017" article="a" name="dead corpse">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="39016" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39018" article="a" name="dead usurper warlock">
+	<item id="39018" article="a" name="dead corpse">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="39017" />
 		<attribute key="duration" value="900" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39019" article="a" name="dead usurper warlock">
+	<item id="39019" article="a" name="dead corpse">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="39018" />
 		<attribute key="duration" value="10" />
@@ -52176,11 +52242,21 @@
 	<item id="40343" article="a" name="cheesy key">
 		<attribute key="weight" value="250" />
 	</item>
-	<item id="40359" article="a" name="jungle quiver">
+	<item id="40359" article="a" name="pro quiver">
 		<attribute key="weight" value="1800" />
 		<attribute key="containerSize" value="8" />
 		<attribute key="weaponType" value="quiver" />
 		<attribute key="slotType" value="right-hand" />
+		<attribute key="defense" value="32" />
+		<attribute key="imbuingSlots" value="3" />
+		<attribute key="skillAxe" value="10" />
+		<attribute key="skillSword" value="10" />
+		<attribute key="skillShield" value="10" />
+		<attribute key="skillDist" value="10" />
+		<attribute key="skillClub" value="10" />
+		<attribute key="skillFist" value="10" />
+		<attribute key="magiclevelpoints" value="12" />
+		<attribute key="absorbPercentPhysical" value="6" />
 	</item>
 	<item id="40397" article="a" name="quiver">
 		<attribute key="weight" value="1700" />
