@@ -23,6 +23,26 @@ npcConfig.flags = {
 	floorchange = false
 }
 
+npcConfig.shop = {
+	{ itemName = "banana", clientId = 3587, buy = 3 },
+	{ itemName = "blueberry", clientId = 3588, buy = 1 },
+	{ itemName = "carrot", clientId = 3595, buy = 3 },
+	{ itemName = "cherry", clientId = 3590, buy = 1 },
+	{ itemName = "cucumber", clientId = 8014, buy = 5 },
+	{ itemName = "grapes", clientId = 3592, buy = 3 },
+	{ itemName = "mango", clientId = 5096, buy = 8 },
+	{ itemName = "melon", clientId = 3593, buy = 8 },
+	{ itemName = "orange", clientId = 3586, buy = 6 },
+	{ itemName = "pear", clientId = 3584, buy = 5 },
+	{ itemName = "plum", clientId = 8011, buy = 3 },
+	{ itemName = "potato", clientId = 8010, buy = 5 },
+	{ itemName = "pumpkin", clientId = 3594, buy = 10 },
+	{ itemName = "raspberry", clientId = 8012, buy = 1 },
+	{ itemName = "red apple", clientId = 3585, buy = 3 },
+	{ itemName = "strawberry", clientId = 3591, buy = 1 },
+	{ itemName = "tomato", clientId = 3596, buy = 4 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -50,28 +70,6 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
-npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Buyable items
-	{ itemName = "banana", clientId = 3587, buy = 3 },
-	{ itemName = "blueberry", clientId = 3588, buy = 1 },
-	{ itemName = "carrot", clientId = 3595, buy = 3 },
-	{ itemName = "cherry", clientId = 3590, buy = 1 },
-	{ itemName = "cucumber", clientId = 8014, buy = 5 },
-	{ itemName = "grapes", clientId = 3592, buy = 3 },
-	{ itemName = "mango", clientId = 5096, buy = 8 },
-	{ itemName = "melon", clientId = 3593, buy = 8 },
-	{ itemName = "orange", clientId = 3586, buy = 6 },
-	{ itemName = "pear", clientId = 3584, buy = 5 },
-	{ itemName = "plum", clientId = 8011, buy = 3 },
-	{ itemName = "potato", clientId = 8010, buy = 5 },
-	{ itemName = "pumpkin", clientId = 3594, buy = 10 },
-	{ itemName = "raspberry", clientId = 8012, buy = 1 },
-	{ itemName = "red apple", clientId = 3585, buy = 3 },
-	{ itemName = "strawberry", clientId = 3591, buy = 1 },
-	{ itemName = "tomato", clientId = 3596, buy = 4 }
-}
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
@@ -84,5 +82,7 @@ end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
 end
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

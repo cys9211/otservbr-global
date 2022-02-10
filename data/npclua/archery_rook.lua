@@ -29,6 +29,11 @@ npcConfig.voices = {
 	{text = 'Come into my tavern and share some stories!'}
 }
 
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "royal spear", clientId = 7378, buy = 100 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -56,20 +61,6 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
--- Basic
-
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this saloon. I call it Archery's Hut. I am also {selling} ammunitions."})
-
-npcHandler:setMessage(MESSAGE_GREET, "Welcome to Archery's Rook shop.")
-npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back from time to time.")
-npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back from time to time.")
-
-npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Buyable items
-	{ itemName = "royal spear", clientId = 7378, buy = 100 }
-}
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
@@ -82,5 +73,14 @@ end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
 end
+
+-- Basic
+keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this saloon. I call it Archery's Hut. I am also {selling} ammunitions."})
+
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to Archery's Rook shop.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back from time to time.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back from time to time.")
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

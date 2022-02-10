@@ -23,6 +23,15 @@ npcConfig.flags = {
 	floorchange = false
 }
 
+npcConfig.shop = {
+	{ itemName = "atlas", clientId = 6108, buy = 150 },
+	{ itemName = "first verse of the hymn", clientId = 6087, sell = 100 },
+	{ itemName = "second verse of the hymn", clientId = 6088, sell = 250 },
+	{ itemName = "third verse of the hymn", clientId = 6089, sell = 400 },
+	{ itemName = "fourth verse of the hymn", clientId = 6090, sell = 800 },
+	{ itemName = "orichalcum pearl", clientId = 5021, buy = 80 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -48,6 +57,19 @@ end
 
 npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
+end
+
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -109,28 +131,5 @@ end
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Sellable items
-	{ itemName = "first verse of the hymn", clientId = 6087, sell = 100 },
-	{ itemName = "second verse of the hymn", clientId = 6088, sell = 250 },
-	{ itemName = "third verse of the hymn", clientId = 6089, sell = 400 },
-	{ itemName = "fourth verse of the hymn", clientId = 6090, sell = 800 },
-	-- Buyable items
-	{ itemName = "atlas", clientId = 6108, buy = 150 },
-	{ itemName = "orichalcum pearl", clientId = 5021, buy = 80 }
-}
--- On buy npc shop message
-npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
-end
--- On sell npc shop message
-npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
-end
--- On check npc shop message (look item)
-npcType.onCheckItem = function(npc, player, clientId, subType)
-end
 
 npcType:register(npcConfig)

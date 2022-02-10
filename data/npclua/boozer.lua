@@ -23,6 +23,20 @@ npcConfig.flags = {
 	floorchange = false
 }
 
+npcConfig.shop = {
+	{ itemName = "bread", clientId = 3600, buy = 4 },
+	{ itemName = "cask of brown ale", clientId = 8774, buy = 3000 },
+	{ itemName = "cheese", clientId = 3607, buy = 6 },
+	{ itemName = "cookie", clientId = 3598, buy = 5 },
+	{ itemName = "ham", clientId = 3582, buy = 8 },
+	{ itemName = "ice cream cone", clientId = 229, buy = 10 },
+	{ itemName = "meat", clientId = 3577, buy = 5 },
+	{ itemName = "mug of beer", clientId = 2880, buy = 2, count = 3 },
+	{ itemName = "mug of wine", clientId = 2880, buy = 3, count = 15 },
+	{ itemName = "mug of lemonade", clientId = 2880, buy = 2, count = 5 },
+	{ itemName = "mug of water", clientId = 2880, buy = 2, count = 1 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -48,6 +62,19 @@ end
 
 npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
+end
+
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -83,32 +110,5 @@ end
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Buyable items
-	{ itemName = "bread", clientId = 3600, buy = 4 },
-	{ itemName = "cask of brown ale", clientId = 8774, buy = 3000 },
-	{ itemName = "cheese", clientId = 3607, buy = 6 },
-	{ itemName = "cookie", clientId = 3598, buy = 5 },
-	{ itemName = "ham", clientId = 3582, buy = 8 },
-	{ itemName = "ice cream cone", clientId = 229, buy = 10 },
-	{ itemName = "meat", clientId = 3577, buy = 5 },
-	{ itemName = "mug of beer", clientId = 2880, buy = 2, count = 3 },
-	{ itemName = "mug of wine", clientId = 2880, buy = 3, count = 15 },
-	{ itemName = "mug of lemonade", clientId = 2880, buy = 2, count = 5 },
-	{ itemName = "mug of water", clientId = 2880, buy = 2, count = 1 }
-}
--- On buy npc shop message
-npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
-end
--- On sell npc shop message
-npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
-end
--- On check npc shop message (look item)
-npcType.onCheckItem = function(npc, player, clientId, subType)
-end
 
 npcType:register(npcConfig)

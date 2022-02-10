@@ -24,6 +24,19 @@ npcConfig.flags = {
 	floorchange = false
 }
 
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "bread", clientId = 3600, buy = 3 },
+	{ itemName = "cheese", clientId = 3607, buy = 5 },
+	{ itemName = "egg", clientId = 3606, buy = 2 },
+	{ itemName = "ham", clientId = 3582, buy = 8 },
+	{ itemName = "meat", clientId = 3577, buy = 5 },
+	{ itemName = "mug of beer", clientId = 2880, buy = 3, count = 3 },
+	{ itemName = "mug of rum", clientId = 2880, buy = 10, count = 27 },
+	{ itemName = "mug of wine", clientId = 2880, buy = 4, count = 15 },
+	{ itemName = "tomato", clientId = 3596, buy = 3 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -51,20 +64,6 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
-npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Buyable items
-	{ itemName = "bread", clientId = 3600, buy = 3 },
-	{ itemName = "cheese", clientId = 3607, buy = 5 },
-	{ itemName = "egg", clientId = 3606, buy = 2 },
-	{ itemName = "ham", clientId = 3582, buy = 8 },
-	{ itemName = "meat", clientId = 3577, buy = 5 },
-	{ itemName = "mug of beer", clientId = 2880, buy = 3, count = 3 },
-	{ itemName = "mug of rum", clientId = 2880, buy = 10, count = 27 },
-	{ itemName = "mug of wine", clientId = 2880, buy = 4, count = 15 },
-	{ itemName = "tomato", clientId = 3596, buy = 3 }
-}
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
@@ -77,5 +76,7 @@ end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
 end
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

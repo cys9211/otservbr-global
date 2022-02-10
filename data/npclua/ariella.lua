@@ -25,7 +25,26 @@ npcConfig.flags = {
 
 npcConfig.voices = {
 	interval = 15000,
-	chance = 50,{text = "Have a drink in Meriana's only tavern!"}}
+	chance = 50,{text = "Have a drink in Meriana's only tavern!"}
+}
+
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "banana", clientId = 3587, buy = 5 },
+	{ itemName = "blueberry", clientId = 3588, buy = 1 },
+	{ itemName = "cheese", clientId = 3607, buy = 6 },
+	{ itemName = "ham", clientId = 3582, buy = 8 },
+	{ itemName = "juice squeezer", clientId = 5865, buy = 100 },
+	{ itemName = "mango", clientId = 5096, buy = 10 },
+	{ itemName = "meat", clientId = 3577, buy = 5 },
+	{ itemName = "melon", clientId = 3593, buy = 10 },
+	{ itemName = "orange", clientId = 3586, buy = 10 },
+	{ itemName = "pear", clientId = 3584, buy = 5 },
+	{ itemName = "pumpkin", clientId = 3594, buy = 10 },
+	{ itemName = "red apple", clientId = 3585, buy = 5 },
+	{ itemName = "strawberry", clientId = 3591, buy = 2 },
+	{ itemName = "valentine's cake", clientId = 6392, buy = 100 }
+}
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -54,6 +73,18 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
+end
 
 local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
@@ -179,35 +210,5 @@ end
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Buyable items
-	{ itemName = "banana", clientId = 3587, buy = 5 },
-	{ itemName = "blueberry", clientId = 3588, buy = 1 },
-	{ itemName = "cheese", clientId = 3607, buy = 6 },
-	{ itemName = "ham", clientId = 3582, buy = 8 },
-	{ itemName = "juice squeezer", clientId = 5865, buy = 100 },
-	{ itemName = "mango", clientId = 5096, buy = 10 },
-	{ itemName = "meat", clientId = 3577, buy = 5 },
-	{ itemName = "melon", clientId = 3593, buy = 10 },
-	{ itemName = "orange", clientId = 3586, buy = 10 },
-	{ itemName = "pear", clientId = 3584, buy = 5 },
-	{ itemName = "pumpkin", clientId = 3594, buy = 10 },
-	{ itemName = "red apple", clientId = 3585, buy = 5 },
-	{ itemName = "strawberry", clientId = 3591, buy = 2 },
-	{ itemName = "valentine's cake", clientId = 6392, buy = 100 }
-}
--- On buy npc shop message
-npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
-end
--- On sell npc shop message
-npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
-end
--- On check npc shop message (look item)
-npcType.onCheckItem = function(npc, player, clientId, subType)
-end
 
 npcType:register(npcConfig)

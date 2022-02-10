@@ -34,6 +34,19 @@ npcConfig.voices = {
 	{ text = "Yes, that's it! The elementary particle are corresponding to the... the ... UNBELIEVEABLE!!!" }
 }
 
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "energy soil", clientId = 945, sell = 2000 },
+	{ itemName = "eternal flames", clientId = 946, sell = 5000 },
+	{ itemName = "flawless ice crystal", clientId = 942, sell = 5000 },
+	{ itemName = "glimmering soil", clientId = 941, sell = 2000 },
+	{ itemName = "iced soil", clientId = 944, sell = 2000 },
+	{ itemName = "mother soil", clientId = 947, sell = 5000 },
+	{ itemName = "natural soil", clientId = 940, sell = 2000 },
+	{ itemName = "neutral matter", clientId = 954, sell = 5000 },
+	{ itemName = "pure energy", clientId = 948, sell = 5000 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -59,6 +72,19 @@ end
 
 npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
+end
+
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
 end
 
 local greetMsg = {
@@ -179,30 +205,5 @@ npcHandler:setMessage(MESSAGE_FAREWELL, "At last! Good things come to those who 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Sellable items
-	{ itemName = "energy soil", clientId = 945, sell = 2000 },
-	{ itemName = "eternal flames", clientId = 946, sell = 5000 },
-	{ itemName = "flawless ice crystal", clientId = 942, sell = 5000 },
-	{ itemName = "glimmering soil", clientId = 941, sell = 2000 },
-	{ itemName = "iced soil", clientId = 944, sell = 2000 },
-	{ itemName = "mother soil", clientId = 947, sell = 5000 },
-	{ itemName = "natural soil", clientId = 940, sell = 2000 },
-	{ itemName = "neutral matter", clientId = 954, sell = 5000 },
-	{ itemName = "pure energy", clientId = 948, sell = 5000 }
-}
--- On buy npc shop message
-npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
-end
--- On sell npc shop message
-npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
-end
--- On check npc shop message (look item)
-npcType.onCheckItem = function(npc, player, clientId, subType)
-end
 
 npcType:register(npcConfig)

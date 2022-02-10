@@ -31,33 +31,18 @@ npcConfig.voices = {
 	{ text = 'Tools and general equipment at Al Dee\'s!' },
 	{ text = 'Don\'t head for adventure without a rope and torches! Buy your supplies here!' }
 }
-npcConfig.shop = {	-- Sellable items
-	{ itemName = "fishing rod", clientId = 3483, sell = 30 },
-	{ itemName = "rope", clientId = 3003, sell = 8 },
-	{ itemName = "shovel", clientId = 3457, sell = 2 },	-- Buyable items
+
+npcConfig.shop = {
 	{ itemName = "backpack", clientId = 2854, buy = 10 },
 	{ itemName = "bag", clientId = 2853, buy = 4 },
-	{ itemName = "fishing rod", clientId = 3483, buy = 150 },
-	{ itemName = "rope", clientId = 3003, buy = 50 },
+	{ itemName = "fishing rod", clientId = 3483, buy = 150, sell = 30 },
+	{ itemName = "rope", clientId = 3003, buy = 50, sell = 8 },
 	{ itemName = "scroll", clientId = 2815, buy = 5 },
 	{ itemName = "scythe", clientId = 3453, buy = 12 },
-	{ itemName = "shovel", clientId = 3457, buy = 10 },
+	{ itemName = "shovel", clientId = 3457, buy = 10, sell = 2},
 	{ itemName = "torch", clientId = 2920, buy = 2 },
 	{ itemName = "worm", clientId = 3492, buy = 1 }
 }
-
--- On buy npc shop message
-npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
-end
--- On sell npc shop message
-npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
-end
--- On check npc shop message (look item)
-npcType.onCheckItem = function(npc, player, clientId, subType)
-end
 
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
@@ -84,6 +69,19 @@ end
 
 npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
+end
+
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
 end
 
 -- Basic Keywords

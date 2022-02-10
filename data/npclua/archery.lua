@@ -30,43 +30,6 @@ npcConfig.voices = {
 	{text = 'Come into my tavern and share some stories!'}
 }
 
-local keywordHandler = KeywordHandler:new()
-local npcHandler = NpcHandler:new(keywordHandler)
-
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-end
-
-npcType.onAppear = function(npc, creature)
-	npcHandler:onAppear(npc, creature)
-end
-
-npcType.onDisappear = function(npc, creature)
-	npcHandler:onDisappear(npc, creature)
-end
-
-npcType.onMove = function(npc, creature, fromPosition, toPosition)
-	npcHandler:onMove(npc, creature, fromPosition, toPosition)
-end
-
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onSay(npc, creature, type, message)
-end
-
-npcType.onCloseChannel = function(npc, creature)
-	npcHandler:onCloseChannel(npc, creature)
-end
-
--- Basic
-
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this saloon. I call it Archery's Hut. I am also {selling} ammunitions."})
-
-npcHandler:setMessage(MESSAGE_GREET, "Welcome to Archery's shop!")
-npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back from time to time.")
-npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back from time to time.")
-
-npcHandler:addModule(FocusModule:new())
-
 npcConfig.shop = {
 	-- Buyable items
 	{ itemName = "assassin star", clientId = 7368, buy = 100 },
@@ -100,6 +63,34 @@ npcConfig.shop = {
 	{ itemName = "throwing star", clientId = 3287, buy = 42 },
 	{ itemName = "vortex bolt", clientId = 14252, buy = 6 }
 }
+
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
+npcType.onAppear = function(npc, creature)
+	npcHandler:onAppear(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+	npcHandler:onDisappear(npc, creature)
+end
+
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
+end
+
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onSay(npc, creature, type, message)
+end
+
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
+end
+
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
@@ -112,5 +103,14 @@ end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
 end
+
+-- Basic
+keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this saloon. I call it Archery's Hut. I am also {selling} ammunitions."})
+
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to Archery's shop!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back from time to time.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back from time to time.")
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

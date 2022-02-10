@@ -35,6 +35,18 @@ npcConfig.voices = {
 	{ text = 'Need food? I have plenty for sale!' }
 }
 
+npcConfig.shop = {
+	{ itemName = "bread", clientId = 3600, buy = 3, sell = 1 },
+	{ itemName = "carrot", clientId = 3595, sell = 1 },
+	{ itemName = "cheese", clientId = 3607, buy = 5, sell = 2 },
+	{ itemName = "cherry", clientId = 3590, sell = 1 },
+	{ itemName = "dead rat", clientId = 3994, sell = 2 },
+	{ itemName = "egg", clientId = 3606, sell = 1 },
+	{ itemName = "ham", clientId = 3582, buy = 8, sell = 4 },
+	{ itemName = "meat", clientId = 3577, buy = 5, sell = 2 },
+	{ itemName = "salmon", clientId = 3579, sell = 2 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -62,6 +74,18 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
+-- On buy npc shop message
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+end
+-- On sell npc shop message
+npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
+	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
+end
+-- On check npc shop message (look item)
+npcType.onCheckItem = function(npc, player, clientId, subType)
+end
 
 -- Basic keywords
 keywordHandler:addKeyword({'hint'}, StdModule.rookgaardHints, {npcHandler = npcHandler})
@@ -133,15 +157,16 @@ keywordHandler:addAliasKeyword({'zerbrus'})
 
 -- Health Potion Quest
 local panKeyword = keywordHandler:addKeyword({'pan'}, StdModule.say, {npcHandler = npcHandler, text = 'Have you found a pan for me?'})
-	panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'A pan! At last! Take this in case you eat something my cousin has cooked.', reset = true},
-			function(player) return player:getItemCount(3466) > 0 end,
-			function(player)
-				player:removeItem(3466, 1)
-				player:addItem(7876, 1)
-			end
+panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'A pan! At last! Take this in case you eat something my cousin has cooked.', reset = true},
+		function(player)
+			return player:getItemCount(3466) > 0 end,
+		function(player)
+			player:removeItem(3466, 1)
+			player:addItem(7876, 1)
+		end
 	)
-	panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Hey! You don\'t have one!', reset = true})
-	panKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'Then go and look for one!', reset = true})
+panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Hey! You don\'t have one!', reset = true})
+panKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'Then go and look for one!', reset = true})
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'HOW RUDE!')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Bye.')
@@ -149,35 +174,5 @@ npcHandler:setMessage(MESSAGE_SENDTRADE, 'Sure.')
 npcHandler:setMessage(MESSAGE_GREET, 'Howdy |PLAYERNAME|. I\'m a farmer and cook, maybe I can interest you in a {trade} with food? You can also ask me for general {hints} about the game.')
 
 npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Sellable items
-	{ itemName = "bread", clientId = 3600, sell = 1 },
-	{ itemName = "carrot", clientId = 3595, sell = 1 },
-	{ itemName = "cheese", clientId = 3607, sell = 2 },
-	{ itemName = "cherry", clientId = 3590, sell = 1 },
-	{ itemName = "dead rat", clientId = 3994, sell = 2 },
-	{ itemName = "egg", clientId = 3606, sell = 1 },
-	{ itemName = "ham", clientId = 3582, sell = 4 },
-	{ itemName = "meat", clientId = 3577, sell = 2 },
-	{ itemName = "salmon", clientId = 3579, sell = 2 },
-	-- Buyable items
-	{ itemName = "bread", clientId = 3600, buy = 3 },
-	{ itemName = "cheese", clientId = 3607, buy = 5 },
-	{ itemName = "ham", clientId = 3582, buy = 8 },
-	{ itemName = "meat", clientId = 3577, buy = 5 }
-}
--- On buy npc shop message
-npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
-end
--- On sell npc shop message
-npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
-end
--- On check npc shop message (look item)
-npcType.onCheckItem = function(npc, player, clientId, subType)
-end
 
 npcType:register(npcConfig)

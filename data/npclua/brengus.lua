@@ -23,60 +23,39 @@ npcConfig.flags = {
 	floorchange = false
 }
 
- local keywordHandler = KeywordHandler:new()
-local npcHandler = NpcHandler:new(keywordHandler)
-
-npcType.onAppear = function(npc, creature)
-	npcHandler:onAppear(npc, creature)
-end
-
-npcType.onDisappear = function(npc, creature)
-	npcHandler:onDisappear(npc, creature)
-end
-
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onSay(npc, creature, type, message)
-end
-
-npcType.onCloseChannel = function(npc, creature)
-	npcHandler:onCloseChannel(npc, creature)
-end
-
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-end
-
-npcHandler:addModule(FocusModule:new())
-
 npcConfig.shop = {
-	-- Sellable items
-	{ itemName = "axe", clientId = 3274, sell = 7 },
+	{ itemName = "arrow", clientId = 3447, buy = 3 },
+	{ itemName = "axe", clientId = 3274, buy = 20, sell = 7 },
 	{ itemName = "banana sash", clientId = 11511, sell = 55 },
 	{ itemName = "banana staff", clientId = 3348, sell = 1000 },
 	{ itemName = "bast skirt", clientId = 3560, sell = 750 },
-	{ itemName = "battle axe", clientId = 3266, sell = 80 },
-	{ itemName = "battle hammer", clientId = 3305, sell = 120 },
+	{ itemName = "battle axe", clientId = 3266, buy = 235, sell = 80 },
+	{ itemName = "battle hammer", clientId = 3305, buy = 350, sell = 120 },
 	{ itemName = "battle shield", clientId = 3413, sell = 95 },
+	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
+	{ itemName = "bolt", clientId = 3446, buy = 4 },
 	{ itemName = "bone club", clientId = 3337, sell = 5 },
-	{ itemName = "bone sword", clientId = 3338, sell = 20 },
+	{ itemName = "bone sword", clientId = 3338, buy = 75, sell = 20 },
 	{ itemName = "bonelord helmet", clientId = 3408, sell = 2200 },
-	{ itemName = "bow", clientId = 3350, sell = 100 },
-	{ itemName = "brass armor", clientId = 3359, sell = 150 },
-	{ itemName = "brass helmet", clientId = 3354, sell = 30 },
-	{ itemName = "brass legs", clientId = 3372, sell = 49 },
-	{ itemName = "brass shield", clientId = 3411, sell = 25 },
-	{ itemName = "carlin sword", clientId = 3283, sell = 118 },
-	{ itemName = "chain armor", clientId = 3358, sell = 70 },
-	{ itemName = "chain helmet", clientId = 3352, sell = 17 },
-	{ itemName = "chain legs", clientId = 3558, sell = 25 },
+	{ itemName = "bow", clientId = 3350, buy = 400, sell = 100 },
+	{ itemName = "brass armor", clientId = 3359, buy = 450, sell = 150 },
+	{ itemName = "brass helmet", clientId = 3354, buy = 120, sell = 30 },
+	{ itemName = "brass legs", clientId = 3372, buy = 195, sell = 49 },
+	{ itemName = "brass shield", clientId = 3411, buy = 65, sell = 25 },
+	{ itemName = "carlin sword", clientId = 3283, buy = 473, sell = 118 },
+	{ itemName = "chain armor", clientId = 3358, buy = 200, sell = 70 },
+	{ itemName = "chain helmet", clientId = 3352, buy = 52, sell = 17 },
+	{ itemName = "chain legs", clientId = 3558, buy = 80, sell = 25 },
 	{ itemName = "charmer's tiara", clientId = 3407, sell = 900 },
-	{ itemName = "club", clientId = 3270, sell = 1 },
-	{ itemName = "coat", clientId = 3562, sell = 1 },
+	{ itemName = "club", clientId = 3270, buy = 5, sell = 1 },
+	{ itemName = "coat", clientId = 3562, buy = 8, sell = 1 },
 	{ itemName = "copper shield", clientId = 3430, sell = 50 },
 	{ itemName = "crocodile boots", clientId = 3556, sell = 1000 },
-	{ itemName = "crossbow", clientId = 3349, sell = 120 },
-	{ itemName = "crowbar", clientId = 3304, sell = 50 },
-	{ itemName = "dagger", clientId = 3267, sell = 2 },
+	{ itemName = "crossbow", clientId = 3349, buy = 500, sell = 120 },
+	{ itemName = "crowbar", clientId = 3304, buy = 260, sell = 50 },
+	{ itemName = "crimson sword", clientId = 7385, buy = 610 },
+	{ itemName = "crystalline arrow", clientId = 15793, buy = 20 },
+	{ itemName = "dagger", clientId = 3267, buy = 5, sell = 2 },
 	{ itemName = "double axe", clientId = 3275, sell = 260 },
 	{ itemName = "doublet", clientId = 3379, sell = 3 },
 	{ itemName = "dwarven shield", clientId = 3425, sell = 100 },
@@ -134,29 +113,6 @@ npcConfig.shop = {
 	{ itemName = "war hammer", clientId = 3279, sell = 470 },
 	{ itemName = "wooden shield", clientId = 3412, sell = 5 },
 	-- Buyable items
-	{ itemName = "arrow", clientId = 3447, buy = 3 },
-	{ itemName = "axe", clientId = 3274, buy = 20 },
-	{ itemName = "battle axe", clientId = 3266, buy = 235 },
-	{ itemName = "battle hammer", clientId = 3305, buy = 350 },
-	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
-	{ itemName = "bolt", clientId = 3446, buy = 4 },
-	{ itemName = "bone sword", clientId = 3338, buy = 75 },
-	{ itemName = "bow", clientId = 3350, buy = 400 },
-	{ itemName = "brass armor", clientId = 3359, buy = 450 },
-	{ itemName = "brass helmet", clientId = 3354, buy = 120 },
-	{ itemName = "brass legs", clientId = 3372, buy = 195 },
-	{ itemName = "brass shield", clientId = 3411, buy = 65 },
-	{ itemName = "carlin sword", clientId = 3283, buy = 473 },
-	{ itemName = "chain armor", clientId = 3358, buy = 200 },
-	{ itemName = "chain helmet", clientId = 3352, buy = 52 },
-	{ itemName = "chain legs", clientId = 3558, buy = 80 },
-	{ itemName = "club", clientId = 3270, buy = 5 },
-	{ itemName = "coat", clientId = 3562, buy = 8 },
-	{ itemName = "crimson sword", clientId = 7385, buy = 610 },
-	{ itemName = "crossbow", clientId = 3349, buy = 500 },
-	{ itemName = "crowbar", clientId = 3304, buy = 260 },
-	{ itemName = "crystalline arrow", clientId = 15793, buy = 20 },
-	{ itemName = "dagger", clientId = 3267, buy = 5 },
 	{ itemName = "diamond arrow", clientId = 35901, buy = 100 },
 	{ itemName = "doublet", clientId = 3379, buy = 16 },
 	{ itemName = "drill bolt", clientId = 16142, buy = 12 },
@@ -223,6 +179,30 @@ npcConfig.shop = {
 	{ itemName = "war hammer", clientId = 3279, buy = 10000 },
 	{ itemName = "wooden shield", clientId = 3412, buy = 15 }
 }
+
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+
+npcType.onAppear = function(npc, creature)
+	npcHandler:onAppear(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+	npcHandler:onDisappear(npc, creature)
+end
+
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onSay(npc, creature, type, message)
+end
+
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
+end
+
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
@@ -235,5 +215,7 @@ end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
 end
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

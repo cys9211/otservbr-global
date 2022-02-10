@@ -18,6 +18,12 @@ npcConfig.flags = {
 	floorchange = false
 }
 
+npcConfig.shop = {
+	{ itemName = "label", clientId = 3507, buy = 1 },
+	{ itemName = "letter", clientId = 3505, buy = 8 },
+	{ itemName = "parcel", clientId = 3503, buy = 15 }
+}
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -45,14 +51,6 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
-npcHandler:addModule(FocusModule:new())
-
-npcConfig.shop = {
-	-- Buyable items
-	{ itemName = "label", clientId = 3507, buy = 1 },
-	{ itemName = "letter", clientId = 3505, buy = 8 },
-	{ itemName = "parcel", clientId = 3503, buy = 15 }
-}
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
@@ -65,5 +63,7 @@ end
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType)
 end
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)
